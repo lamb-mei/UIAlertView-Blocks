@@ -58,7 +58,24 @@ static NSString *RI_BUTTON_ASS_KEY = @"com.random-ideas.BUTTONS";
     return buttonIndex;
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    // If the button index is -1 it means we were dismissed with no selection
+//    if (buttonIndex >= 0)
+//    {
+//        NSArray *buttonsArray = objc_getAssociatedObject(self, (__bridge const void *)RI_BUTTON_ASS_KEY);
+//        RIButtonItem *item = [buttonsArray objectAtIndex:buttonIndex];
+//        if(item.action)
+//            item.action();
+//    }
+//
+//    objc_setAssociatedObject(self, (__bridge const void *)RI_BUTTON_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+
+
+//完成才呼叫
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     // If the button index is -1 it means we were dismissed with no selection
     if (buttonIndex >= 0)
@@ -71,6 +88,7 @@ static NSString *RI_BUTTON_ASS_KEY = @"com.random-ideas.BUTTONS";
     
     objc_setAssociatedObject(self, (__bridge const void *)RI_BUTTON_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 
 - (NSMutableArray *)buttonItems
 {
